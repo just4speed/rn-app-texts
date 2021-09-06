@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "texting",
+    "slug": "texting",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "texting"
+}
