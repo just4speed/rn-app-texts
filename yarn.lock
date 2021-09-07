@@ -1590,7 +1590,7 @@
     "sudo-prompt" "^9.0.0"
     "wcwidth" "^1.0.1"
 
-"@react-native-masked-view/masked-view@0.2.4":
+"@react-native-masked-view/masked-view@^0.2.4":
   "integrity" "sha512-2Y9OXWHRutYmdyW+bNMaFTW8uTBpaaK20xdIFoVtqahEOO9++B+ut3CAWKPZcdRtb9ikG0LUKChGqMeocg0PGA=="
   "resolved" "https://registry.npmjs.org/@react-native-masked-view/masked-view/-/masked-view-0.2.4.tgz"
   "version" "0.2.4"
