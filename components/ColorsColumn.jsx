@@ -40,13 +40,8 @@ const styles = StyleSheet.create({
       shadowOpacity: 0.5
     },
     selected: {
-      shadowColor: "#ba44ff",
-      shadowOffset: {
-        width: 0,
-        height: 10,
-      },
-      shadowOpacity: 0.51,
-      shadowRadius: 13.16,
+      borderColor: "#ba44ff",
+      borderWidth: 2,
   
       elevation: 20,
     }
