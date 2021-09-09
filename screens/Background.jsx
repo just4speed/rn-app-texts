@@ -23,13 +23,7 @@ const Background = () => {
     <View>
       <SafeAreaView>
         <Showcase/>
-        <ScrollView>
-          <View style={{ flexDirection: 'column', paddingHorizontal: 10 }}>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', flexWrap: 'wrap' }}>
-              <ColorsColumn cb={onSelect} selectedColor={main?.backgroundColor} />
-            </View>
-          </View>
-        </ScrollView>
+        <ColorsColumn cb={onSelect} selectedColor={main?.fillColor} />
       </SafeAreaView>
     </View>
   );

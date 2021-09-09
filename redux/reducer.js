@@ -1,9 +1,16 @@
+import highPressure from '../data/high-pressure';
+import lowPressure from '../data/low-pressure';
 
 const initialState = {
-  pressure: 'high',
+  pressure: highPressure,
   fillColor: "#38306b",
   outlineColor: "#fff285",
-  backgroundColor: "#000000"
+  powerlineColor: "#000",
+  backgroundColor: "#000000",
+  highlightColor: "#000",
+
+  powerlines: true,
+  highlights: true
 }
 
 export default function(state = initialState, action){
@@ -11,7 +18,7 @@ export default function(state = initialState, action){
     case 'CHANGE_PRESSURE': {
       return {
         ...state,
-        pressure: state.pressure == 'high' ? 'low' : 'high'
+        pressure: state.pressure == highPressure ? lowPressure : highPressure
       }
     }
 
@@ -31,6 +38,18 @@ export default function(state = initialState, action){
       return {
         ...state,
         backgroundColor: action.payload
+      }
+    }
+    case 'CHANGE_POWERLINE': {
+      return {
+        ...state,
+        powerlineColor: action.payload
+      }
+    }
+    case 'CHANGE_HIGHLIGHT': {
+      return {
+        ...state,
+        highlightColor: action.payload
       }
     }
 
