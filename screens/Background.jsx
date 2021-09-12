@@ -23,7 +23,7 @@ const Background = () => {
     <View>
       <SafeAreaView>
         <Showcase/>
-        <ColorsColumn cb={onSelect} selectedColor={main?.fillColor} />
+        <ColorsColumn cb={onSelect} selectedColor={main?.backgroundColor} />
       </SafeAreaView>
     </View>
   );

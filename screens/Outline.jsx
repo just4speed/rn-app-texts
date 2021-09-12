@@ -23,7 +23,7 @@ const Outline = () => {
     <View>
       <SafeAreaView>
         <Showcase/>
-        <ColorsColumn cb={onSelect} selectedColor={main?.fillColor} />
+        <ColorsColumn cb={onSelect} selectedColor={main?.outlineColor} />
       </SafeAreaView>
     </View>
   );

@@ -20,7 +20,7 @@ const Force = () => {
     <View>
       <SafeAreaView>
         <Showcase/>
-        <ColorsColumn cb={onSelect} selectedColor={main?.fillColor} />
+        <ColorsColumn cb={onSelect} selectedColor={main?.powerlineColor} />
       </SafeAreaView>
     </View>
   );

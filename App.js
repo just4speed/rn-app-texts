@@ -18,8 +18,10 @@ import Background from './screens/Background.jsx';
 import Force from './screens/Force.jsx';
 import Highlight from './screens/Hightlight.jsx';
 
-// or any pure javascript modules available in npm
-import { Card } from 'react-native-paper';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 const Tab = createMaterialTopTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -31,8 +33,8 @@ const InnerBottomTabs = () => {
       initialRouteName="Fill"
       tabBarOptions={{
         activeTintColor: '#fff',
-        labelStyle: { fontSize: 8, fontWeight: 'bold' },
-        style: { backgroundColor: '#000', padding: 0, margin: 0, height: 70 },
+        labelStyle: { fontSize: wp('2%'), fontWeight: 'bold' },
+        style: { backgroundColor: '#000', padding: 0, margin: 0, height: hp('9%') },
         indicatorStyle: { backgroundColor: '#fff' },
       }}>
       <Tab.Screen
@@ -42,7 +44,7 @@ const InnerBottomTabs = () => {
           tabBarIcon: ({ color }) => (
             <Image
               source={require('./assets/fillwhite.png')}
-              style={{ width: 25, height: 25, marginLeft: 5 }}
+              style={{ width: 25, height: 25 }}
             />
           ),
         }}
