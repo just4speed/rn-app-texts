@@ -11,7 +11,7 @@ import GraffitiView from './GraffitiView.jsx';
 const Showcase = () => {
     const main = useSelector(state => state.main);
     return(
-        <SafeAreaView style={{ paddingVertical: hp('5%') }}>
+        <SafeAreaView style={{ paddingVertical: hp('5%'), backgroundColor: "#fff" }}>
 
             <View style={{ marginBottom: hp('15%') }}>
                 

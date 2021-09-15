@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, SafeAreaView, ScrollView } from 'react-native';
+import { ScrollView } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 // import {
 //   widthPercentageToDP as wp,
@@ -20,12 +20,10 @@ const Background = () => {
   }
 
   return (
-    <View>
-      <SafeAreaView>
-        <Showcase/>
-        <ColorsColumn cb={onSelect} selectedColor={main?.backgroundColor} />
-      </SafeAreaView>
-    </View>
+    <ScrollView stickyHeaderIndices={[0]} showsVerticalScrollIndicator={false}>
+      <Showcase/>
+      <ColorsColumn cb={onSelect} selectedColor={main?.backgroundColor} />
+    </ScrollView>
   );
 };
 

@@ -17,12 +17,10 @@ const Force = () => {
   }
 
   return (
-    <View>
-      <SafeAreaView>
-        <Showcase/>
-        <ColorsColumn cb={onSelect} selectedColor={main?.powerlineColor} />
-      </SafeAreaView>
-    </View>
+    <ScrollView stickyHeaderIndices={[0]} showsVerticalScrollIndicator={false}>
+      <Showcase/>
+      <ColorsColumn cb={onSelect} selectedColor={main?.powerlineColor} />
+    </ScrollView>
   );
 };
 

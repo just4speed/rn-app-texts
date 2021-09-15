@@ -1,8 +1,21 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { SafeAreaView, Text } from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 const About = () => {
-  return <Text>About page</Text>;
+  return(
+    <SafeAreaView style={{ paddingVertical: hp("3%"), paddingHorizontal: wp("7%") }}>
+      <Text style={{ fontSize: wp("5%") }}>Writer was created as a result of the frustration you can get from choosing your colors.
+The beginners within us know this pain, and the more advanced writers remember this pain for sure.
+By having all the average shades in the professional paint industry, we can choose way faster, and not having a doubt about our choices.
+</Text>
+      <Text style={{ fontSize: wp("5%") }}>Writer will <Text style={{ fontWeight: "bold" }}>not</Text> save any of your data.</Text>
+      <Text style={{ fontWeight: "bold", paddingVertical: hp("3%"), fontSize: wp("5%") }}>writerapp@gmail.com</Text>
+    </SafeAreaView>
+  )
 };
 
 export default About;

@@ -17,12 +17,10 @@ const Highlight = () => {
   }
 
   return (
-    <View>
-      <SafeAreaView>
-        <Showcase/>
-        <ColorsColumn cb={onSelect} selectedColor={main?.highlightColor} />
-      </SafeAreaView>
-    </View>
+    <ScrollView stickyHeaderIndices={[0]} showsVerticalScrollIndicator={false}>
+      <Showcase/>
+      <ColorsColumn cb={onSelect} selectedColor={main?.highlightColor} />
+    </ScrollView>
   );
 };
 

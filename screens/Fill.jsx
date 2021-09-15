@@ -20,12 +20,10 @@ const Fill = () => {
   }
 
   return (
-    <View>
-      <SafeAreaView>
-        <Showcase/>
-        <ColorsColumn cb={onSelect} selectedColor={main?.fillColor} />
-      </SafeAreaView>
-    </View>
+    <ScrollView stickyHeaderIndices={[0]} showsVerticalScrollIndicator={false}>
+      <Showcase/>
+      <ColorsColumn cb={onSelect} selectedColor={main?.fillColor} />
+    </ScrollView>
   );
 };
 

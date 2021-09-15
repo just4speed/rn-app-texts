@@ -20,12 +20,10 @@ const Outline = () => {
   }
 
   return (
-    <View>
-      <SafeAreaView>
-        <Showcase/>
-        <ColorsColumn cb={onSelect} selectedColor={main?.outlineColor} />
-      </SafeAreaView>
-    </View>
+    <ScrollView stickyHeaderIndices={[0]} showsVerticalScrollIndicator={false}>
+      <Showcase/>
+      <ColorsColumn cb={onSelect} selectedColor={main?.outlineColor} />
+    </ScrollView>
   );
 };
 
