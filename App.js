@@ -1,8 +1,10 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, Image } from 'react-native';
+import { useDispatch } from "react-redux";
+import { Image } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 // Redux
 import {Provider} from 'react-redux';
 import {store} from './redux/store';
@@ -23,8 +25,10 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
+
 const Tab = createMaterialTopTabNavigator();
 const Drawer = createDrawerNavigator();
+
 
 const InnerBottomTabs = () => {
   return (
@@ -156,12 +160,29 @@ const DrawerNavigator = () => {
   );
 };
 
-export default function App() {
+const App = () => {
+  const dispatch = useDispatch();
+  React.useEffect(async () => {
+    const jsonValue = await AsyncStorage.getItem('@schemes');
+    const data = jsonValue != null ? JSON.parse(jsonValue) : [];
+    dispatch({
+      type: "SET_GRAFFITI",
+      payload: data
+    });
+  }, []);
+
   return (
-    <Provider store={store}>
-      <NavigationContainer>
-        <DrawerNavigator />
-      </NavigationContainer>
-    </Provider>
+    <NavigationContainer>
+      <DrawerNavigator />
+    </NavigationContainer>
   );
+
+};
+
+export default function Root(){
+  return(
+    <Provider store={store}>
+      <App/>
+    </Provider>
+  )
 }

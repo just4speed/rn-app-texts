@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View, Image, StyleSheet } from 'react-native';
-import MaskedView from '@react-native-masked-view/masked-view';
+import MaskedView from '@react-native-community/masked-view';
 import {
     widthPercentageToDP as wp,
     heightPercentageToDP as hp,
