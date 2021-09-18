@@ -16,8 +16,8 @@ const Settings = () => {
                 style={{ textAlign: "center", marginVertical: hp("4%") }}
             >Settings</Text>
             <PressureButtons pressure={main.pressure} />
-            <SaveButton data={main}/>
             <Switchers/>
+            <SaveButton data={main}/>
         </>
     )
 }

@@ -18,6 +18,12 @@ export default function(state = initialState, action){
                 items: state.items.filter(item => item !== action.payload)
             }
         }
+        case "SET_GRAFFITI": {
+            return{
+                ...state,
+                items: action.payload
+            }
+        }
         default: {
             return state;
         }

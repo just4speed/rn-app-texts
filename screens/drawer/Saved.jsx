@@ -5,20 +5,28 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import GraffitiView from '../../components/GraffitiView.jsx';
 
 const Saved = () => {
   const saved = useSelector(state => state.saved);
   const dispatch = useDispatch();
 
-  const deleteItem = item => {
-    dispatch({
-      type: 'REMOVE_GRAFFITI',
-      payload: item
+  const removeFromStorage = item => {
+    const newData = saved.items.filter((graffiti) => {
+      return graffiti !== item
     })
+    AsyncStorage.setItem("@schemes", JSON.stringify(newData));
   }
 
   const SavedItem = ({ item }) => {
+    const deleteItem = item => {
+      dispatch({
+        type: 'REMOVE_GRAFFITI',
+        payload: item
+      })
+      removeFromStorage(item);
+    }
     return(
       <View style={styles.savedCard}>
         <GraffitiView data={item}/>
@@ -32,7 +40,7 @@ const Saved = () => {
           { item.highlights && (
             <View style={[styles.colorCard, { backgroundColor: item.highlightColor }]}></View>
           ) }
-          <TouchableOpacity style={styles.deleteBtn}>
+          <TouchableOpacity style={styles.deleteBtn} onPress={() => deleteItem(item)}>
             <Text style={{ color: "#000", fontWeight: "bold", fontSize: wp("5%") }}>X</Text>
           </TouchableOpacity>
         </View>

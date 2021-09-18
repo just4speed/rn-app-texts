@@ -22,7 +22,7 @@ const Switchers = () => {
                 flexDirection: "row",
                 justifyContent: "center",
                 alignItems: "center",
-                marginVertical: 10
+                marginTop: 10
             }}
         >
             <View

@@ -164,6 +164,7 @@ const App = () => {
   const dispatch = useDispatch();
   React.useEffect(async () => {
     const jsonValue = await AsyncStorage.getItem('@schemes');
+    console.warn(jsonValue)
     const data = jsonValue != null ? JSON.parse(jsonValue) : [];
     dispatch({
       type: "SET_GRAFFITI",
