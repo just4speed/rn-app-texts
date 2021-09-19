@@ -1,11 +1,15 @@
 {
   "expo": {
-    "name": "texting",
-    "slug": "texting",
+    "name": "Writer",
+    "icon": "./assets/icon.png",
+    "slug": "graffitiapp",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "android": {
+      "package": "Writter.App"
+    }
   },
-  "name": "texting"
+  "name": "graffitiapp"
 }
