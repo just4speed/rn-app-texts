@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { View, Image, StyleSheet } from 'react-native';
-import MaskedView from '@react-native-masked-view/masked-view';
 import {
     widthPercentageToDP as wp,
     heightPercentageToDP as hp,
@@ -10,57 +9,26 @@ const GraffitiView = ({ data }) => (
     <>
         {/* Background */}
         <View style={[styles.over, { zIndex: 1 }]}>
-            <MaskedView
-                maskElement={
-                    <Image style={{width: wp('97%'), height: hp('15%')}} source={ require('../assets/background.png') } />
-                }
-            >
-                    <View style={[styles.layer, { backgroundColor: data.backgroundColor }]} />
-            </MaskedView>
+            <Image style={[styles.layer, { tintColor: data.backgroundColor }]} source={ require('../assets/background.png') } />
         </View>
         {/* Fill */}
         <View style={[styles.over, { zIndex: 2 }]}>
-            <MaskedView
-                maskElement={
-                    <Image style={{width: wp('97%'), height: hp('15%')}} source={ require('../assets/fill.png') } />
-                }
-            >
-                <View style={[styles.layer, { backgroundColor: data.fillColor }]}>
-                </View>
-            </MaskedView>
+            <Image style={[styles.layer, { tintColor: data.fillColor }]} source={ require('../assets/fill.png') } />
         </View>
         {/* Powerline */}
         { data.powerlines && (
             <View style={[styles.over, { zIndex: 3 }]}>
-                <MaskedView
-                    maskElement={
-                        <Image style={{width: wp('97%'), height: hp('15%')}} source={ require('../assets/powerline.png') } />
-                    }
-                >
-                    <View style={[styles.layer, { backgroundColor: data.powerlineColor }]} />
-                    </MaskedView>
+                <Image style={[styles.layer, { tintColor: data.powerlineColor }]} source={ require('../assets/powerline.png') } />
             </View>
         )}
         {/* Outline */}
         <View style={[styles.over, { zIndex: 4 }]}>
-            <MaskedView
-                maskElement={
-                    <Image style={{width: wp('97%'), height: hp('15%')}} source={ require('../assets/outline.png') } />
-                }
-            >
-                    <View style={[styles.layer, { backgroundColor: data.outlineColor }]} />
-            </MaskedView>
+            <Image style={[styles.layer, { tintColor: data.outlineColor }]} source={ require('../assets/outline.png') } />
         </View>
         {/* Highlight */}
         { data.highlights && (
             <View style={[styles.over, { zIndex: 5 }]}>
-                <MaskedView
-                    maskElement={
-                        <Image style={{width: wp('97%'), height: hp('15%')}} source={ require('../assets/highlights.png') } />
-                    }
-                >
-                    <View style={[styles.layer, { backgroundColor: data.highlightColor }]} />
-                    </MaskedView>
+                <Image style={[styles.layer, { tintColor: data.highlightColor }]} source={ require('../assets/highlights.png') } />
             </View>
         ) }
 

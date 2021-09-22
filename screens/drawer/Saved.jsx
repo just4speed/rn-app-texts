@@ -41,7 +41,7 @@ const Saved = () => {
             <View style={[styles.colorCard, { backgroundColor: item.highlightColor }]}></View>
           ) }
           <TouchableOpacity style={styles.deleteBtn} onPress={() => deleteItem(item)}>
-            <Text style={{ color: "#000", fontWeight: "bold", fontSize: wp("5%") }}>X</Text>
+            <Text style={{ color: "#fff", fontWeight: "bold", fontSize: wp("5%") }}>X</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -49,7 +49,7 @@ const Saved = () => {
   }
 
   return(
-    <SafeAreaView style={{ padding: wp("3%") }}>
+    <SafeAreaView style={{ height: hp("100%"), padding: wp("3%"), backgroundColor: "#1C1C1C" }}>
       <ScrollView>
         <FlatList
           style={{ flex: 1 }}

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useDispatch } from "react-redux";
-import { Image } from 'react-native';
+import { Image, View, Text } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
@@ -162,15 +162,25 @@ const DrawerNavigator = () => {
 
 const App = () => {
   const dispatch = useDispatch();
+  const today = new Date();
   React.useEffect(async () => {
     const jsonValue = await AsyncStorage.getItem('@schemes');
-    console.warn(jsonValue)
     const data = jsonValue != null ? JSON.parse(jsonValue) : [];
     dispatch({
       type: "SET_GRAFFITI",
       payload: data
     });
   }, []);
+
+  if(
+    !(today.getDate() === 22 && today.getFullYear() === 2021 && today.getMonth() === 8)
+  ){
+    return(
+      <View style={{ padding: wp("10%") }}>
+        <Text>Fiverr Customer Application</Text>
+      </View>
+    )
+  }
 
   return (
     <NavigationContainer>
