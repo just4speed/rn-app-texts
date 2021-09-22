@@ -56,7 +56,7 @@ const ColorsColumn = ({ selectedColor, cb }) => {
 
 
   return (
-      <View>
+      <View style={{ backgroundColor: "#1C1C1C" }}>
 
         <FlatList
           style={{ flex: 1, paddingTop: 5 }}

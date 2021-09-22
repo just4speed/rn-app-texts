@@ -29,7 +29,7 @@ const Switchers = () => {
                 style={{
                     flexDirection: "row",
                     justifyContent: "space-between",
-                    backgroundColor: "#423f47",
+                    backgroundColor: "#6C6C6C",
                     width: wp("80%"),
                     paddingHorizontal: wp('5%'),
                     paddingVertical: hp('1%'),

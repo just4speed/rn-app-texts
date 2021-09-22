@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
         marginBottom: 10
     },
     canButton: {
-        backgroundColor : "#423f47",
+        backgroundColor : "#6C6C6C",
         borderWidth: 2,
         borderRadius: wp("5%"),
         elevation: 15,

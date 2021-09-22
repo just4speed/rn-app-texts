@@ -20,7 +20,7 @@ const Outline = () => {
   }
 
   return (
-    <ScrollView stickyHeaderIndices={[0]} showsVerticalScrollIndicator={false}>
+    <ScrollView style={{ backgroundColor: "#1C1C1C" }} stickyHeaderIndices={[0]} showsVerticalScrollIndicator={false}>
       <Showcase/>
       <ColorsColumn cb={onSelect} selectedColor={main?.outlineColor} />
     </ScrollView>

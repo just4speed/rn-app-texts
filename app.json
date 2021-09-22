@@ -2,6 +2,10 @@
   "expo": {
     "name": "Writer",
     "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "backgroundColor": "#fff"
+    },
     "slug": "graffitiapp",
     "version": "1.0.0",
     "assetBundlePatterns": [

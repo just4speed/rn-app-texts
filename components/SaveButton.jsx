@@ -42,7 +42,7 @@ const SaveButton = ({ data }) => {
     return(
         <View style={styles.container}>
             <TouchableOpacity onPress={saveGraffiti} style={styles.saveBtn}>
-                <Text>Save Scheme</Text>
+                <Text style={{ color: "#fff" }}>Save Scheme</Text>
             </TouchableOpacity>
         </View>
     )
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
         width: wp("40%"),
         borderRadius: wp("5%"),
         borderColor: "#fff",
-        backgroundColor: "yellow",
+        backgroundColor: "#6C6C6C",
         justifyContent: "center",
         alignItems: "center",
         paddingVertical: hp('1%'),

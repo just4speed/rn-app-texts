@@ -13,7 +13,7 @@ const Settings = () => {
     return(
         <>
             <Text
-                style={{ textAlign: "center", marginVertical: hp("4%") }}
+                style={{ textAlign: "center", marginVertical: hp("4%"), color: "#fff" }}
             >Settings</Text>
             <PressureButtons pressure={main.pressure} />
             <Switchers/>
