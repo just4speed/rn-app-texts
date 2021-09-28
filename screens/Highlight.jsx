@@ -4,13 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import Showcase from '../components/Showcase.jsx';
 import ColorsColumn from '../components/ColorsColumn.jsx';
 
-const Background = () => {
+const Highlight = () => {
     const dispatch = useDispatch();
     const main = useSelector(state => state.main);
     const scrollview = React.useRef();
     const onSelect = id => {
         dispatch({
-            type: 'CHANGE_BACKGROUND',
+            type: 'CHANGE_HIGHLIGHT',
             payload: id
         })
     }
@@ -21,9 +21,9 @@ const Background = () => {
         <ScrollView style={{ backgroundColor: "#1C1C1C" }} ref={scrollview} stickyHeaderIndices={[0]} showsVerticalScrollIndicator={false}>
             <Showcase/>
             <View style={{ height: 20 }} />
-            <ColorsColumn scrollTop={scrollTop} cb={onSelect} selectedColor={main?.backgroundColor} />
+            <ColorsColumn scrollTop={scrollTop} cb={onSelect} selectedColor={main?.highlightColor} />
         </ScrollView>
     )
 }
 
-export default Background;
+export default Highlight;

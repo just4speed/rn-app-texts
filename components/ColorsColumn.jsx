@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useSelector } from 'react-redux';
-import { TouchableOpacity, FlatList, View, StyleSheet } from 'react-native';
+import { TouchableOpacity, FlatList, SafeAreaView, View, StyleSheet } from 'react-native';
 // import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
   widthPercentageToDP as wp,
@@ -12,63 +12,42 @@ import Settings from './Settings.jsx';
 import highPressure from '../data/high-pressure';
 import lowPressure from '../data/low-pressure';
 
-// const storeGraffiti = async (value) => {
-//   try {
-//     await AsyncStorage.setItem('@storage_Key', value)
-//   } catch (e) {
-//     console.log(e)
-//   }
-// }
-//
 
-const ColorsColumn = ({ selectedColor, cb }) => {
+function Item({ item, selectedColor, cb }){
+  return(
+    <View style={{ alignItems: 'center',
+      justifyContent: 'center', flex: 1, }}>
+      <TouchableOpacity
+        onPress={() => {
+          cb(item.id);
+        }}
+        style={[
+          styles.colorButton,
+          { backgroundColor: item.id },
+          item.id == selectedColor && styles.selected
+        ]}></TouchableOpacity>
+    </View>
+  )
+}
+
+const ColorsColumn = ({ selectedColor, cb, scrollTop }) => {
   const main = useSelector(state => state.main);
-  
-  const formatData = (data, numColumns) => {
-    const numberOfFullRows = Math.floor(data.length / numColumns);
-  
-    let numberOfElementsLastRow = data.length - (numberOfFullRows * numColumns);
-    while (numberOfElementsLastRow !== numColumns && numberOfElementsLastRow !== 0) {
-      data.push({ key: `blank-${numberOfElementsLastRow}`, empty: true });
-      numberOfElementsLastRow++;
-    }
-  
-    return data;
-  };
 
-  const Item = ({ item }) => {
-      return(
-      <View style={{ alignItems: 'center',
-        justifyContent: 'center', flex: 1, }}>
-        <TouchableOpacity
-          key={item.id}
-          onPress={() => {
-            cb(item.id);
-          }}
-          style={[
-            styles.colorButton,
-            { backgroundColor: item.id },
-            item.id == selectedColor && styles.selected
-          ]}></TouchableOpacity>
-      </View>
-    )
-  }
+  const renderItem = ({item}) => <Item item={item} selectedColor={selectedColor} cb={cb} />;
+  const keyExtractor = (item) => item.id;
 
 
   return (
-      <View style={{ backgroundColor: "#1C1C1C" }}>
-
-        <FlatList
-          style={{ flex: 1, paddingTop: 5 }}
-          data={formatData(main.pressure == "high" ? highPressure : lowPressure, 6)}
-          renderItem={Item}
-          keyExtractor={item => item.id}
-          numColumns={6}
-        />
-
-        <Settings/>
-
-      </View>
+    <SafeAreaView style={{flex: 1, backgroundColor: "#1C1C1C"}}>
+          <FlatList
+            style={{ flex: 1, paddingTop: 5 }}
+            data={main.pressure == "high" ? highPressure : lowPressure}
+            renderItem={renderItem}
+            extraData={[selectedColor, cb]}
+            keyExtractor={keyExtractor}
+            numColumns={6}
+            ListFooterComponent={<Settings scrollTop={scrollTop}/>} />
+    </SafeAreaView>
     )
 }
 
@@ -88,3 +67,4 @@ const styles = StyleSheet.create({
 })
 
 export default ColorsColumn;
+

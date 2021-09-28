@@ -1,5 +1,5 @@
 {
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
@@ -9,10 +9,7 @@
   "dependencies": {
     "@expo/vector-icons": "^12.0.0",
     "@react-native-async-storage/async-storage": "^1.15.7",
-    "@react-native-community/masked-view": "^0.1.11",
-    "@react-native-masked-view/masked-view": "^0.2.4",
     "@react-navigation/drawer": "*",
-    "@react-navigation/material-bottom-tabs": "*",
     "@react-navigation/material-top-tabs": "^6.0.2",
     "@react-navigation/native": "6.0.0",
     "expo": "~42.0.1",
@@ -23,8 +20,8 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "~0.63.4",
+    "react-native-cli": "^2.0.1",
     "react-native-gesture-handler": "~1.10.2",
-    "react-native-mask-image": "*",
     "react-native-pager-view": "5.0.12",
     "react-native-paper": "3.6.0",
     "react-native-reanimated": "~2.2.0",
@@ -39,7 +36,9 @@
     "redux-thunk": "*"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0"
+    "@babel/core": "^7.9.0",
+    "@types/react-native": "~0.63.2",
+    "typescript": "~4.0.0"
   },
   "private": true
 }

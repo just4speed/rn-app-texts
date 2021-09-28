@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Image, View, Text } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -16,9 +16,9 @@ import Saved from './screens/drawer/Saved.jsx';
 // Buttons Screens
 import Fill from './screens/Fill.jsx';
 import Outline from './screens/Outline.jsx';
+import Powerline from './screens/Powerline';
 import Background from './screens/Background.jsx';
-import Force from './screens/Force.jsx';
-import Highlight from './screens/Hightlight.jsx';
+import Highlight from './screens/Highlight.jsx';
 
 import {
   widthPercentageToDP as wp,
@@ -31,6 +31,7 @@ const Drawer = createDrawerNavigator();
 
 
 const InnerBottomTabs = () => {
+  const main = useSelector(state => state.main);
   return (
     <Tab.Navigator
       tabBarPosition="bottom"
@@ -38,9 +39,15 @@ const InnerBottomTabs = () => {
       tabBarOptions={{
         activeTintColor: '#fff',
         labelStyle: { fontSize: wp('2%'), fontWeight: 'bold' },
-        style: { backgroundColor: '#000', padding: 0, margin: 0, height: hp('9%') },
+        style: {
+          backgroundColor: '#000', padding: 0, margin: 0, height: hp('9%')
+        },
         indicatorStyle: { backgroundColor: '#fff' },
-      }}>
+      }}
+      screenOptions={{
+        swipeEnabled: false
+      }}
+    >
       <Tab.Screen
         name="Fill"
         component={Fill}
@@ -78,25 +85,45 @@ const InnerBottomTabs = () => {
         }}
       />
       <Tab.Screen
-        name="Force"
-        component={Force}
+        name="Power line"
+        component={Powerline}
+        listeners={{
+          tabPress: e => {
+            if(!main.powerlines){
+              e.preventDefault();
+            }
+          },
+        }}
         options={{
+          tabBarLabelStyle: {
+            fontSize: wp('2%'), fontWeight: 'bold', opacity: main.powerlines ? 1: 0.5
+          },
           tabBarIcon: ({ color }) => (
             <Image
               source={require('./assets/forcewhite.png')}
-              style={{ width: 25, height: 25 }}
+              style={{ width: 25, height: 25, opacity: main.powerlines ? 1: 0.5 }}
             />
-          ),
+          )
         }}
       />
       <Tab.Screen
         name="Highlight"
         component={Highlight}
+        listeners={{
+          tabPress: e => {
+            if(!main.highlights){
+              e.preventDefault();
+            }
+          },
+        }}
         options={{
+          tabBarLabelStyle: {
+            fontSize: wp('2%'), fontWeight: 'bold', opacity: main.highlights ? 1: 0.5
+          },
           tabBarIcon: ({ color }) => (
             <Image
               source={require('./assets/highlightwhite.png')}
-              style={{ width: 25, height: 25 }}
+              style={{ width: 25, height: 25, opacity: main.highlights ? 1: 0.5 }}
             />
           ),
         }}
@@ -173,11 +200,11 @@ const App = () => {
   }, []);
 
   if(
-    !(today.getDate() === 22 && today.getFullYear() === 2021 && today.getMonth() === 8)
+    !(today.getFullYear() === 2021 && today.getMonth() === 8)
   ){
     return(
       <View style={{ padding: wp("10%") }}>
-        <Text>Fiverr Customer Application</Text>
+        <Text>Home Page</Text>
       </View>
     )
   }

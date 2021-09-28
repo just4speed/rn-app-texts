@@ -44,6 +44,7 @@ const Switchers = () => {
                         ios_backgroundColor="#3e3e3e"
                         onValueChange={() => onChange("SWITCH_POWERLINES")}
                         value={main.powerlines}
+                        style={{ marginHorizontal: wp("3%"), transform: [{ scaleX: 1.2 }, { scaleY: 1.2 }] }}
                     />
                 </View>
                 <View style={{ flexDirection: "row" }}>
@@ -53,6 +54,7 @@ const Switchers = () => {
                         ios_backgroundColor="#3e3e3e"
                         onValueChange={() => onChange("SWITCH_HIGHLIGHTS")}
                         value={main.highlights}
+                        style={{ marginHorizontal: wp("3%"), transform: [{ scaleX: 1.2 }, { scaleY: 1.2 }] }}
                     />
                 </View>
             </View>

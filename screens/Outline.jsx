@@ -1,31 +1,29 @@
-import * as React from 'react';
-import { View, SafeAreaView, ScrollView } from 'react-native';
-import { useSelector, useDispatch } from 'react-redux';
-// import {
-//   widthPercentageToDP as wp,
-//   heightPercentageToDP as hp,
-// } from 'react-native-responsive-screen';
+import React from "react";
+import { SafeAreaView, ScrollView, View } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
 import Showcase from '../components/Showcase.jsx';
 import ColorsColumn from '../components/ColorsColumn.jsx';
 
 const Outline = () => {
-  const main = useSelector(state => state.main);
-  const dispatch = useDispatch();
-
-  const onSelect = id => {
-    dispatch({
-      type: 'CHANGE_OUTLINE',
-      payload: id
-    })
-  }
-
-  return (
-    <ScrollView style={{ backgroundColor: "#1C1C1C" }} stickyHeaderIndices={[0]} showsVerticalScrollIndicator={false}>
-      <Showcase/>
-      <ColorsColumn cb={onSelect} selectedColor={main?.outlineColor} />
-    </ScrollView>
-  );
-};
-
+    const dispatch = useDispatch();
+    const main = useSelector(state => state.main);
+    const scrollview = React.useRef();
+    const onSelect = id => {
+        dispatch({
+            type: 'CHANGE_OUTLINE',
+            payload: id
+        })
+    }
+    const scrollTop = () => {
+        scrollview.current.scrollTo({ x: 0, y: 0, animated: true });
+    }
+    return(
+        <ScrollView  style={{ backgroundColor: "#1C1C1C" }} ref={scrollview} stickyHeaderIndices={[0]} showsVerticalScrollIndicator={false}>
+            <Showcase/>
+            <View style={{ height: 20 }} />
+            <ColorsColumn scrollTop={scrollTop} cb={onSelect} selectedColor={main?.outlineColor} />
+        </ScrollView>
+    )
+}
 
 export default Outline;

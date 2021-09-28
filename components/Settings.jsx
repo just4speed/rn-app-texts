@@ -8,14 +8,14 @@ import {
     heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-const Settings = () => {
+const Settings = ({ scrollTop }) => {
     const main = useSelector(state => state.main);
     return(
         <>
             <Text
                 style={{ textAlign: "center", marginVertical: hp("4%"), color: "#fff" }}
             >Settings</Text>
-            <PressureButtons pressure={main.pressure} />
+            <PressureButtons scrollTop={scrollTop} pressure={main.pressure} />
             <Switchers/>
             <SaveButton data={main}/>
         </>

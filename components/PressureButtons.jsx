@@ -6,13 +6,14 @@ import {
     heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-const PressureButtons = ({ pressure }) => {
+const PressureButtons = ({ pressure, scrollTop }) => {
     const dispatch = useDispatch();
 
     const switchPressure = () => {
         dispatch({
           type: 'CHANGE_PRESSURE'
-        })
+        });
+        scrollTop();
     }
 
     return(
@@ -27,7 +28,7 @@ const PressureButtons = ({ pressure }) => {
             >
                 <Text
                     style={{ color: "#fff" }}
-                >High Pressure</Text>
+                >High Pressure Cans</Text>
             </TouchableOpacity>
 
             <TouchableOpacity
@@ -40,7 +41,7 @@ const PressureButtons = ({ pressure }) => {
             >
                 <Text
                     style={{ color: "#fff" }}
-                >Low Pressure</Text>
+                >Low Pressure Cans</Text>
             </TouchableOpacity>
 
         </View>
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between",
-        paddingHorizontal: 40,
+        paddingHorizontal: wp("2%"),
         marginBottom: 10
     },
     canButton: {

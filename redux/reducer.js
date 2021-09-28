@@ -1,6 +1,3 @@
-import highPressure from '../data/high-pressure';
-import lowPressure from '../data/low-pressure';
-
 const initialState = {
   pressure: "high",
   fillColor: "#38306b",

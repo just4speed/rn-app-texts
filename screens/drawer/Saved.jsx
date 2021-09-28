@@ -49,13 +49,15 @@ const Saved = () => {
   }
 
   return(
-    <SafeAreaView style={{ height: hp("100%"), padding: wp("3%"), backgroundColor: "#1C1C1C" }}>
+    <SafeAreaView style={{ height: hp("100%"), backgroundColor: "#1C1C1C" }}>
       <ScrollView>
+      <View style={{ height: hp("5%") }} />
         <FlatList
           style={{ flex: 1 }}
           data={saved.items}
           renderItem={SavedItem}
         />
+        <View style={{ height: hp("25%") }} />
       </ScrollView>
     </SafeAreaView>
   )
@@ -68,15 +70,18 @@ const styles = StyleSheet.create({
   },
   savedCard: {
     marginBottom: wp("3%"),
-    paddingVertical: 40
+    paddingVertical: 40,
+    flex: 1,
+    alignItems: "center",
   },
   colorCard: {
-    width: wp("9%"),
-    height: hp("4%"),
+    width: wp("9.5%"),
+    height: hp("4.5%"),
     margin: 5,
-    borderRadius: 10,
+    borderRadius: wp("50%"),
     shadowColor: 'black',
     shadowOpacity: 0.5,
+    justifyContent: "center", alignItems: "center"
   },
   colorItems: {
     display: "flex",

@@ -7,6 +7,7 @@
       "backgroundColor": "#fff"
     },
     "slug": "graffitiapp",
+    "orientation": "portrait",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
